@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+var socket = io.connect();
+
+socket.on('results', function (data){
+	//console.log(data);
+	draw(data);
+});
+
+function draw(data){
+	c = document.getElementById("myCanvas");
+	ctx = c.getContext("2d");
+
+	//draw 6 balls
+	drawCircle(130,100,50,"#DEF7B0");
+	drawCircle(260,100,50,"#BDE6A4");
+	drawCircle(390,100,50,"#9DF26C");
+	drawCircle(520,100,50,"#95E599");
+	drawCircle(650,100,50,"#78C27C");
+	drawCircle(780,100,50,"#069972");
+
+	//set table values
+	document.getElementById('ball0').innerHTML = data[0];
+	document.getElementById('ball1').innerHTML = data[1];
+	document.getElementById('ball2').innerHTML = data[2];
+	document.getElementById('ball3').innerHTML = data[3];
+	document.getElementById('ball4').innerHTML = data[4];
+	document.getElementById('ball5').innerHTML = data[5];
+}
+
+function drawCircle(x, y, r, colour){
+	ctx.beginPath();
+	ctx.arc(x,y,r,0,2*Math.PI);
+	ctx.fillStyle=colour;
+	ctx.fill();
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1><font color="green">How green is your lifestyle?</font></h1>
+
+<canvas id="myCanvas" width="910" height="200" style="border:0px solid #000000;"></canvas>
+
+<table>
+	<tr>
+		<td width=110>&nbsp</td>
+		<td width=130><h2 id="ball0"></h2></td>
+		<td width=130><h2 id="ball1"></h2></td>
+		<td width=130><h2 id="ball2"></h2></td>
+		<td width=120><h2 id="ball3"></h2></td>
+		<td width=130><h2 id="ball4"></h2></td>
+		<td width=130><h2 id="ball5"></h2></td>
+	</tr>
+</table>
+
+</body>
+
+</html>

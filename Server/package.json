@@ -1,0 +1,17 @@
+{
+  "name": "squeezyballs",
+  "version": "1.0.0",
+  "description": "Squeezy balls server code",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sarah Gallacher",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.0.9",
+    "express": "^4.13.3",
+    "mysql": "^2.9.0",
+    "socket.io": "^1.3.7"
+  }
+}
